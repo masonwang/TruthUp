@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TruthUp</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/vendor/mermaid.min.js"></script>
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <button id="back" class="back" type="button" aria-label="Back to events">‹ Events</button>
+    <a class="brand" href="#/">TruthUp</a>
+    <span class="spacer"></span>
+    <label class="who"><span class="who-label">Your name</span> <input id="author" placeholder="Your name" autocomplete="name"></label>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <button id="new-event" class="primary wide">New event</button>
+      <ul id="event-list" class="event-list"></ul>
+    </aside>
+    <main id="main"></main>
+  </div>
+
+  <dialog id="new-dialog">
+    <form method="dialog" id="new-form">
+      <h2>New event</h2>
+      <label>Title <input name="title" required placeholder="e.g. Kitchen sink leak"></label>
+      <label>Started on <input name="created" type="date" required></label>
+      <label>Actors <input name="actors" placeholder="Comma separated, e.g. Me, Landlord, Plumber"></label>
+      <p class="hint">You can add or rename actors later.</p>
+      <div class="row end">
+        <button type="button" id="new-cancel">Cancel</button>
+        <button value="create" class="primary">Create</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="edit-dialog"></dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
