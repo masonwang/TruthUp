@@ -18,7 +18,11 @@ npm start
 
 Open <http://localhost:5180>. On first start the server creates `./data/` as a git
 repository and adds one example event. Set `TRUTHUP_DATA=/path/to/repo` to keep events
-somewhere else, such as a private repo you push to GitHub.
+somewhere else on the server.
+
+Events are managed by this **local git repository on the web server**: every Save is a
+commit there, and events never leave that machine. They are not pushed to GitHub:
+`data/` is ignored by this repo, and the data repo has no remote.
 
 ## Using it
 

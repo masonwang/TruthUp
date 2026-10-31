@@ -24,6 +24,8 @@ Environment: `TRUTHUP_DATA` (data repo folder, default `./data`), `PORT` (defaul
 
 On first start the server creates the data folder, runs `git init -b main`, and seeds it with `examples/*.md` (one commit per file). `data/` is gitignored. It is the user's own repository of real events, separate from this app's repo.
 
+**Events are managed only by the local git repo on the web server** (user's rule): the server commits each save into its own data repo, and events never leave that machine. **Events must never be pushed to GitHub.** This app repo is public (github.com/masonwang/TruthUp). Never add, commit or push anything from `data/` (or any other events folder) to it, never add a remote to the data repo, and never move real events into `examples/`. Keep `data/` in `.gitignore`.
+
 ## Architecture
 
 ```

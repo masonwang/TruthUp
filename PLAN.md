@@ -12,7 +12,8 @@ a commit, so the event's history and the history of *how we recorded it* are bot
 
 | Topic | Decision |
 |-------|----------|
-| Where it runs | Local Node server, no dependencies, running the real `git` CLI on a data repo |
+| Where it runs | Node web server, no dependencies, running the real `git` CLI on a data repo |
+| Where events live | Only in that local git repo on the web server. Never pushed to GitHub |
 | Diagram rendering | Official Mermaid, installed with npm and served locally (no CDN) |
 | What goes in the diagram | Only actions (arrows), grouped by date. No follow-up, decision or review markers |
 | Actions | From one actor to one or more actors: one arrow per recipient, same ID |
@@ -32,7 +33,7 @@ timeline
         v0.1 Web app : Create events : Actors and actions with details : Save is a git commit
         v0.2 Click to edit : One page per event : Click the diagram to add and edit : Actions to several actors : Actors join and leave
     section Next
-        v0.3 Sharing : Push and pull a remote such as a private GitHub repo : Login and per-user author identity
+        v0.3 Sharing : Events stay in the server's local git : Login and per-user author identity
         v0.4 Evidence : Attach photos and PDFs to an action : Store them in the repo next to the event
     section Later
         v0.5 Reading : Search across events : History view of past versions : Export to PDF
@@ -60,7 +61,8 @@ timeline
 
 ### v0.3 — Sharing (next)
 
-- Push and pull buttons for a configured remote, such as a private GitHub repo
+- Events are managed by the local git repo on the web server and never pushed to GitHub.
+  Backups are a copy of that repo made on the server side (e.g. the server's own disk backups)
 - Sign-in so the commit author is the real user, not a typed name
 - Safe to run on a shared server: authentication, then binding to more than localhost
 
